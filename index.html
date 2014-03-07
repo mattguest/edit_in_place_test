@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <title>Edit in place test</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="app.css">
+    <script src="editinplace.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="jumbotron">
+        <h1>Edit in place test</h1>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8">
+            <h1 class="bodyheader editable" data-id="body_header" data-type="text">Body Content</h1>
+
+            <div class="editable" data-id="content_1" data-type="html">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid, aperiam autem,
+                    consequatur deleniti dolores expedita, impedit iusto minus mollitia numquam perferendis
+                    perspiciatis quia ratione recusandae repellat rerum soluta velit?
+                </p>
+            </div>
+
+            <div class="well alert-warning">
+                <p>This is some static content that can not be edited by the user.</p>
+                <p>Haha silly copy writer person, you can't touch me!</p>
+            </div>
+
+            <div class="editable" data-id="content_2" data-type="html">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid, aperiam autem,
+                    consequatur deleniti dolores expedita, impedit iusto minus mollitia numquam perferendis
+                    perspiciatis quia ratione recusandae repellat rerum soluta velit?
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <h1 class="editable" data-id="side_header" data-type="text">Side Content</h1>
+            <div class="editable" data-id="side_content" data-type="html">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi laboriosam nesciunt ullam
+                    voluptas! Accusantium commodi deserunt eum fugiat illum impedit ipsa maxime minus necessitatibus
+                    nostrum possimus, quidem quis repellat sit?
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="editor-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#edittab" data-toggle="tab">Edit</a></li>
+                    <li><a href="#historytab" data-toggle="tab">History</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="edittab">
+                        <!-- Editors -->
+
+                        <!-- HTML -->
+                        <div class="editor-panel editor-panel-html">
+                            <br />
+                            <textarea id="editor-html"></textarea>
+                        </div>
+
+                        <!-- Text -->
+                        <div class="editor-panel editor-panel-text">
+                            <br />
+                            <input class="form-control" id="editor-text">
+                        </div>
+
+                        <!-- Custom -->
+                        <div class="editor-panel editor-panel-custom">
+                            <br />
+                            <input class="form-control" id="editor-custom-input">
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="historytab">
+                        <div class="history">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary savebtn">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script>
+    tinymce.init({selector:'#editor-html'});
+</script>
+
+</body>
+
+
+</html>
